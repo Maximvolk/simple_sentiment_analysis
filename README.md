@@ -6,4 +6,4 @@ Sentiment analysis model trained on the Amazon Mobile phone reviews dataset (tra
 Powered by Flask.
 
 ### Demo
-<img src=‘/1.png’>	
+![](/1.png)
