@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sentiment prediction</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+</head>
+<body>
+    <h1 class="logo" align="center">Maxim Volkov</h1>
+
+    <div class="centered">
+        <textarea id="input" cols="30" rows="15"></textarea>
+    </div>
+
+    <div class="centered">
+        <button class="myButton">Predict</button>
+    </div>
+
+    <div class="centered">
+        <h1 id="result"></h1>
+    </div>
+    <script src="../static/js/jquery-3.2.0.min.js"></script>
+    <script type="text/javascript">
+	   		$(".myButton").click(function(){
+  	   			$('#result').text('  Predicting...');
+  	   			let text = document.getElementById('input').value;
+  	   			$.post('/predict', {
+  	   			    txt: text
+            }).done(function(response){
+                $("#result").text('Predicted output: ' + response['prediction'])
+            }).fail(function(){
+                $("#result").text('Something went wrong...')
+            });
+	   		});
+    </script>
+</body>
+</html>
